@@ -1,0 +1,208 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/Enemies/basic Enemy/enemy1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Enemies/basic Enemy/enemy02.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Enemies/basic Enemy/enemyUp2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Enemies/basic Enemy/enemyUp3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Enemies/basic Enemy/enemyUp.png" type="Texture" id=5]
+[ext_resource path="res://sprites/spark/brainsignalSprite.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var motionBody = Vector2()
+var Up = Vector2(0, -1)
+var state = \"normal\"
+var possessed = false
+var normalSpd = 400
+var enemyAcc = 60
+var enemySpd = normalSpd
+var enemyHealth = 3
+
+var facing = 1
+var myGrav = 30
+var jumpStrength = 700
+var pickUpPlayer = false
+onready var player = get_parent().get_parent().get_node(\"oPlayer\")
+onready var playerCam = get_parent().get_parent().get_node(\"oPlayer/Camera2D\")
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$AnimatedSprite.play()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+#	pass
+	motionBody.y += myGrav
+	if(motionBody.x > 0):
+		$sign.flip_h = false
+	if(motionBody.x < 0):
+		$sign.flip_h = true
+	carryThePlayer()
+	
+	if(motionBody.y < 0):
+		$AnimatedSprite.position.y = 46
+		$AnimatedSprite.play(\"enemyUp\")
+	elif(motionBody.y > 0):
+		$AnimatedSprite.position.y = -16
+		$AnimatedSprite.play(\"enemyDown\")
+	
+	if(enemyHealth <= 0):
+		
+		if(possessed == true):
+			player.playerState = \"move\"
+			$sign.visible = false
+		queue_free()
+		
+	if(possessed == true):
+		
+		#new speed
+		enemySpd = 600
+		
+		#Show the player the controlled object
+		$sign.visible = true
+		#exit this body
+		$enemCam.current = true
+		
+		if(Input.is_action_just_pressed(\"ui_spaceBar\")):
+			possessed = false
+			$enemCam.current = false
+			player.playerState = \"move\"
+			playerCam.current = true
+			pickUpPlayer = false
+			
+			
+			
+		
+		if(Input.is_action_pressed(\"ui_right\")):
+			motionBody.x += enemyAcc 
+	
+		elif(Input.is_action_pressed(\"ui_left\")):
+				motionBody.x -= enemyAcc 
+				
+		else:
+			
+			
+			motionBody.x = player._approach(motionBody.x, 0, enemyAcc/2)
+			
+		if(is_on_floor()):
+				motionBody.y = -(jumpStrength*2)
+				
+	else:
+		$sign.visible = false
+		enemySpd = 400
+		$enemCam.current = false
+		pickUpPlayer = false
+		if(facing == 1):
+				
+				if(is_on_wall()):
+					motionBody.x -= 400
+					facing = -1
+				else:
+					motionBody.x += enemyAcc * delta
+				
+		else:
+			
+			if(is_on_wall()):
+				motionBody.x += 400
+				facing = 1
+			else:
+				motionBody.x += -enemyAcc * delta
+				
+		if(is_on_floor()):
+			motionBody.y = -(jumpStrength*2)
+			
+	motionBody.x = clamp(motionBody.x, -enemySpd, enemySpd)
+	motionBody = move_and_slide(motionBody, Up)
+			
+
+
+
+
+func _on_Area2D_body_entered(body):
+#
+	if(body.get_name() == \"oPlayer\"):
+		
+		if(possessed == true):
+			pickUpPlayer = true
+			
+		if(body.playerState != \"hurt\" && body.playerState != \"shieldBlast\") && body.invincible == false && possessed == false:
+			if(body.playerHealth > 0):
+				
+				body.playerHealth -= 1
+				body.motion.y = -body.playerJumpForce/1.2
+				
+				var knockBack = 700
+				body.playerState = \"hurt\"
+				body.motion.x = sign(motionBody.x - body.motion.x) * knockBack
+				
+				
+
+func carryThePlayer():
+	if(pickUpPlayer == true) && possessed == true:
+		player.global_position = global_position
+		player.motion.y = 0"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31.0567, 31.0778 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "enemyDown",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "enemyUp",
+"speed": 15.0
+} ]
+
+[node name="jumpingEnemy" type="KinematicBody2D" groups=[
+"jumpies",
+]]
+position = Vector2( -0.291668, 4.73073 )
+collision_mask = 2
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="collider" type="CollisionShape2D" parent="."]
+position = Vector2( 2.83754, 10.8747 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3.37516, 49.7132 )
+frames = SubResource( 3 )
+animation = "enemyUp"
+frame = 1
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="hurtBox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 2.83754, 10.8747 )
+shape = SubResource( 2 )
+
+[node name="enemCam" type="Camera2D" parent="."]
+smoothing_enabled = true
+smoothing_speed = 15.0
+
+[node name="sign" type="Sprite" parent="."]
+position = Vector2( -0.357064, -68.8243 )
+scale = Vector2( 1.00191, 1.00191 )
+texture = ExtResource( 6 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

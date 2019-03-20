@@ -1,0 +1,239 @@
+[gd_scene load_steps=107 format=2]
+
+[ext_resource path="res://oPlayer.gd" type="Script" id=1]
+[ext_resource path="res://sprites/idle/idle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/idle/idle01.png" type="Texture" id=3]
+[ext_resource path="res://sprites/walking/walking0.png" type="Texture" id=4]
+[ext_resource path="res://sprites/walking/walking01.png" type="Texture" id=5]
+[ext_resource path="res://sprites/walking/walking02.png" type="Texture" id=6]
+[ext_resource path="res://sprites/walking/walking03.png" type="Texture" id=7]
+[ext_resource path="res://sprites/jumping/falling.png" type="Texture" id=8]
+[ext_resource path="res://sprites/hurt/hurt01.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hurt/hurt.png" type="Texture" id=10]
+[ext_resource path="res://sprites/jumping/jumping.png" type="Texture" id=11]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00001.png" type="Texture" id=12]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00002.png" type="Texture" id=13]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00003.png" type="Texture" id=14]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00004.png" type="Texture" id=15]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00005.png" type="Texture" id=16]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00006.png" type="Texture" id=17]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00007.png" type="Texture" id=18]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00008.png" type="Texture" id=19]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00009.png" type="Texture" id=20]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00010.png" type="Texture" id=21]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00011.png" type="Texture" id=22]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00012.png" type="Texture" id=23]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00013.png" type="Texture" id=24]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00014.png" type="Texture" id=25]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00015.png" type="Texture" id=26]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00016.png" type="Texture" id=27]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00017.png" type="Texture" id=28]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00018.png" type="Texture" id=29]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00019.png" type="Texture" id=30]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00020.png" type="Texture" id=31]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00021.png" type="Texture" id=32]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00022.png" type="Texture" id=33]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00023.png" type="Texture" id=34]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00024.png" type="Texture" id=35]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00025.png" type="Texture" id=36]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00026.png" type="Texture" id=37]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00027.png" type="Texture" id=38]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00028.png" type="Texture" id=39]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00029.png" type="Texture" id=40]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00030.png" type="Texture" id=41]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00031.png" type="Texture" id=42]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00032.png" type="Texture" id=43]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00033.png" type="Texture" id=44]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00034.png" type="Texture" id=45]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00035.png" type="Texture" id=46]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00036.png" type="Texture" id=47]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00037.png" type="Texture" id=48]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00038.png" type="Texture" id=49]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00039.png" type="Texture" id=50]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00040.png" type="Texture" id=51]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00041.png" type="Texture" id=52]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00042.png" type="Texture" id=53]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00043.png" type="Texture" id=54]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00044.png" type="Texture" id=55]
+[ext_resource path="res://sprites/transitions/Comp 1/mainTransition_00045.png" type="Texture" id=56]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut1.png" type="Texture" id=57]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut2.png" type="Texture" id=58]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut3.png" type="Texture" id=59]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut4.png" type="Texture" id=60]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut5.png" type="Texture" id=61]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut6.png" type="Texture" id=62]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut7.png" type="Texture" id=63]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut8.png" type="Texture" id=64]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut9.png" type="Texture" id=65]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut10.png" type="Texture" id=66]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut11.png" type="Texture" id=67]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut12.png" type="Texture" id=68]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut13.png" type="Texture" id=69]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut14.png" type="Texture" id=70]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut15.png" type="Texture" id=71]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut16.png" type="Texture" id=72]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut17.png" type="Texture" id=73]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut18.png" type="Texture" id=74]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut19.png" type="Texture" id=75]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut20.png" type="Texture" id=76]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut21.png" type="Texture" id=77]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut22.png" type="Texture" id=78]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut23.png" type="Texture" id=79]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut24.png" type="Texture" id=80]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut25.png" type="Texture" id=81]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut26.png" type="Texture" id=82]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut27.png" type="Texture" id=83]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut28.png" type="Texture" id=84]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut29.png" type="Texture" id=85]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut30.png" type="Texture" id=86]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut31.png" type="Texture" id=87]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut32.png" type="Texture" id=88]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut33.png" type="Texture" id=89]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut34.png" type="Texture" id=90]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut35.png" type="Texture" id=91]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut36.png" type="Texture" id=92]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut37.png" type="Texture" id=93]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut38.png" type="Texture" id=94]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut39.png" type="Texture" id=95]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut40.png" type="Texture" id=96]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut41.png" type="Texture" id=97]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut42.png" type="Texture" id=98]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut43.png" type="Texture" id=99]
+[ext_resource path="res://sprites/transitions/fadeOut/FadeOut44.png" type="Texture" id=100]
+[ext_resource path="res://sounds/LostInTheJungle2.wav" type="AudioStream" id=101]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.1305, 46.48 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 0.0
+} ]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/bpreplay/BPreplayExtendedBold.otf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = SubResource( 3 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ null, ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "fadeIn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 57 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), null, null, null, null, null, null, null ],
+"loop": true,
+"name": "fadeOut",
+"speed": 60.0
+} ]
+
+[node name="oPlayer" type="KinematicBody2D" groups=[
+"player",
+]]
+position = Vector2( -13.7886, 29.4992 )
+z_index = 50
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.77354, 2.64148 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "walking"
+frame = 2
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="fadeInAndOut" type="Tween" parent="CanvasLayer"]
+
+[node name="playerHealth" type="Label" parent="CanvasLayer"]
+margin_left = 28.6788
+margin_top = 18.8677
+margin_right = 109.679
+margin_bottom = 32.8677
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "playerHealth"
+
+[node name="fade" type="AnimatedSprite" parent="CanvasLayer"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 962.936, 551.241 )
+scale = Vector2( 1.01314, 1.17886 )
+frames = SubResource( 5 )
+animation = "fadeOut"
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 51.2407, -7.14984 )
+
+[node name="canShootTimer" type="Timer" parent="."]
+
+[node name="canShootTimerBrain" type="Timer" parent="."]
+one_shot = true
+
+[node name="hurtTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="invincibleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="playTransition" type="Timer" parent="."]
+one_shot = true
+
+[node name="feetPosition" type="Position2D" parent="."]
+position = Vector2( -1.55609, 46.0096 )
+
+[node name="backMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 101 )
+volume_db = 2.0
+
+[connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
+[connection signal="timeout" from="canShootTimer" to="." method="_on_canShootTimer_timeout"]
+[connection signal="timeout" from="canShootTimerBrain" to="." method="_on_canShootTimerBrain_timeout"]
+[connection signal="timeout" from="hurtTimer" to="." method="_on_hurtTimer_timeout"]
+[connection signal="timeout" from="invincibleTimer" to="." method="_on_invincibleTimer_timeout"]
+[connection signal="timeout" from="playTransition" to="." method="_on_playTransition_timeout"]
+[connection signal="finished" from="backMusic" to="." method="_on_backMusic_finished"]

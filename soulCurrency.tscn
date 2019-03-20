@@ -1,0 +1,77 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://soulCurrency.gd" type="Script" id=1]
+[ext_resource path="res://sprites/spark/collectible_0000.png" type="Texture" id=2]
+[ext_resource path="res://sprites/spark/collectible_0001.png" type="Texture" id=3]
+[ext_resource path="res://sprites/spark/collectible_0002.png" type="Texture" id=4]
+[ext_resource path="res://sprites/spark/collectible_0003.png" type="Texture" id=5]
+[ext_resource path="res://sprites/spark/collectible_0004.png" type="Texture" id=6]
+[ext_resource path="res://sprites/spark/collectible_0005.png" type="Texture" id=7]
+[ext_resource path="res://sprites/spark/collectible_0006.png" type="Texture" id=8]
+[ext_resource path="res://sprites/spark/collectible_0007.png" type="Texture" id=9]
+[ext_resource path="res://sprites/spark/collectible_0008.png" type="Texture" id=10]
+[ext_resource path="res://sprites/spark/spark_0000.png" type="Texture" id=11]
+[ext_resource path="res://sprites/spark/spark_0001.png" type="Texture" id=12]
+[ext_resource path="res://sprites/spark/spark_0002.png" type="Texture" id=13]
+[ext_resource path="res://sprites/spark/spark_0003.png" type="Texture" id=14]
+[ext_resource path="res://sprites/spark/spark_0004.png" type="Texture" id=15]
+[ext_resource path="res://sprites/spark/spark_0005.png" type="Texture" id=16]
+[ext_resource path="res://sprites/spark/spark_0006.png" type="Texture" id=17]
+[ext_resource path="res://sprites/spark/spark_0007.png" type="Texture" id=18]
+[ext_resource path="res://sprites/spark/spark_0008.png" type="Texture" id=19]
+[ext_resource path="res://sprites/spark/spark_0009.png" type="Texture" id=20]
+[ext_resource path="res://sprites/spark/spark_0010.png" type="Texture" id=21]
+[ext_resource path="res://sprites/spark/spark_0011.png" type="Texture" id=22]
+[ext_resource path="res://sprites/spark/spark_0012.png" type="Texture" id=23]
+[ext_resource path="res://sprites/spark/spark_0013.png" type="Texture" id=24]
+[ext_resource path="res://sprites/spark/spark_0014.png" type="Texture" id=25]
+[ext_resource path="res://sprites/spark/spark_0015.png" type="Texture" id=26]
+[ext_resource path="res://sprites/spark/spark_0016.png" type="Texture" id=27]
+[ext_resource path="res://sprites/spark/spark_0017.png" type="Texture" id=28]
+[ext_resource path="res://sprites/spark/spark_0018.png" type="Texture" id=29]
+[ext_resource path="res://sprites/spark/spark_0019.png" type="Texture" id=30]
+[ext_resource path="res://sprites/spark/spark_0020.png" type="Texture" id=31]
+[ext_resource path="res://sounds/coinSound.wav" type="AudioStream" id=32]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 57.5218
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "collectible",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "collected",
+"speed": 30.0
+} ]
+
+[node name="soulCurrency" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 12.6008, -24.8611 )
+frames = SubResource( 2 )
+animation = "collectible"
+frame = 4
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 32 )
+
+[connection signal="body_entered" from="." to="." method="_on_soulCurrency_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="audio_playerd"]

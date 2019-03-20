@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://hMovingEnemy.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 106.635, 76.5364 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 107.087, 75.8586 )
+
+[node name="hMovingEnemy" type="KinematicBody2D"]
+position = Vector2( -4.06683, -3.8409 )
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.485298, 0 )
+scale = Vector2( 3.31869, 2.61212 )
+frames = SubResource( 2 )
+
+[node name="kinShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0.677826, 2.25936 )
+shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="areaShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.677826, 2.25936 )
+shape = SubResource( 1 )
+
+[node name="leftCheck" type="RayCast2D" parent="."]
+position = Vector2( -107.853, 53.5438 )
+enabled = true
+
+[node name="rightCheck2" type="RayCast2D" parent="."]
+position = Vector2( 109.291, 56.8008 )
+enabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
