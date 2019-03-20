@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LostInTheJungle.wav-b95172ccbf917aa90852d11fbceb471f.sample"
+
+[deps]
+
+source_file="res://sounds/LostInTheJungle.wav"
+dest_files=[ "res://.import/LostInTheJungle.wav-b95172ccbf917aa90852d11fbceb471f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
